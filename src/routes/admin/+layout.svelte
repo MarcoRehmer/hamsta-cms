@@ -12,9 +12,19 @@
       <a href="/admin/pages" class:active={path === '/admin/pages'}>Pages</a>
     </nav>
 
-    <form method="POST" action="/admin/logout">
-      <button class="logout">Logout</button>
-    </form>
+    <div class="user-area">
+      <div class="avatar" title="User">
+        <!-- anonymous person icon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 21v-1a4 4 0 00-4-4H8a4 4 0 00-4 4v1" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <form method="POST" action="/admin/logout">
+        <button class="logout">Logout</button>
+      </form>
+    </div>
   </div>
 </header>
 
@@ -39,7 +49,9 @@
   .nav a { color: rgba(255,255,255,.85); text-decoration: none; padding: .4rem .6rem; border-radius: 6px; }
   .nav a.active { background: rgba(255,255,255,.06); }
 
-  .logout { margin-left: auto; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.08); padding: .4rem .6rem; border-radius: 6px; cursor: pointer; }
+  .user-area { margin-left: auto; display: flex; align-items: center; gap: .6rem }
+  .avatar { width: 34px; height: 34px; border-radius: 999px; background: rgba(255,255,255,.06); display: inline-flex; align-items: center; justify-content: center }
+  .logout { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.08); padding: .4rem .6rem; border-radius: 6px; cursor: pointer; }
 
   .admin-main { padding: 2rem 0; background: #f7fafc; min-height: calc(100vh - 56px); }
   .admin-main .container { background: transparent; }
