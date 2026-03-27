@@ -20,8 +20,8 @@ type Server struct {
 
 func New(cfg config.Config, logger *slog.Logger) *Server {
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /healthz", handlers.Health(cfg.ServiceName))
-	mux.HandleFunc("GET /readiness", handlers.Ready(cfg.ServiceName))
+	mux.HandleFunc("/healthz", handlers.Health(cfg.ServiceName))
+	mux.HandleFunc("/readiness", handlers.Ready(cfg.ServiceName))
 
 	handler := middleware.RequestID(logRequests(logger, mux))
 
